@@ -32,7 +32,7 @@ import (
 
 	"github.com/ghodss/yaml"
 	// "github.com/layer5io/gokit/models"
-	"github.com/layer5io/gokit/utils"
+	"github.com/layer5io/meshkit/utils"
 )
 
 var (

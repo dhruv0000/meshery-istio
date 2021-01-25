@@ -29,6 +29,7 @@ import (
 
 	"github.com/ghodss/yaml"
 	"github.com/layer5io/meshery-istio/meshes"
+	smp "github.com/layer5io/service-mesh-performance/spec"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	kubeerror "k8s.io/apimachinery/pkg/api/errors"
@@ -1129,7 +1130,7 @@ func (iClient *Client) ApplyOperation(ctx context.Context, arReq *meshes.ApplyRu
 		yamlFileContents = arReq.CustomBody
 		isCustomOp = true
 	case smiConformanceCommand:
-		err = iClient.runConformanceTest(arReq.OperationId, "istio", os.Getenv("ISTIO_VERSION"))
+		err = iClient.runConformanceTest(arReq.OperationId, smp.ServiceMesh_Type(smp.ServiceMesh_ISTIO), os.Getenv("ISTIO_VERSION"))
 		if err != nil {
 			return nil, err
 		}

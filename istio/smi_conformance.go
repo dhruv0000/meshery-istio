@@ -5,17 +5,18 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/layer5io/gokit/smi"
 	"github.com/layer5io/meshery-istio/meshes"
+	"github.com/layer5io/meshkit/smi"
+	smp "github.com/layer5io/service-mesh-performance/spec"
 )
 
-func (iClient *Client) runConformanceTest(id string, name string, version string) error {
+func (iClient *Client) runConformanceTest(id string, meshType smp.ServiceMesh_Type, version string) error {
 
 	labels := map[string]string{
 		"istio-injection": "enabled",
 	}
 
-	test, err := smi.New(context.TODO(), id, version, name, iClient.k8sClientset)
+	test, err := smi.New(context.TODO(), id, version, meshType, iClient.k8sClientset)
 	if err != nil {
 		iClient.eventChan <- &meshes.EventsResponse{
 			OperationId: id,
