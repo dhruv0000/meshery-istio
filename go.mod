@@ -10,8 +10,8 @@ replace (
 require (
 	github.com/aspenmesh/istio-vet v0.0.0-20200806222806-9c8e9a962b9f
 	github.com/layer5io/meshery-adapter-library v0.1.11
-	github.com/layer5io/meshkit v0.1.32
-	github.com/onsi/ginkgo v1.13.0 // indirect
+	github.com/layer5io/meshkit v0.2.2
+	github.com/sclevine/agouti v3.0.0+incompatible // indirect
 	golang.org/x/net v0.0.0-20200927032502-5d4f70055728 // indirect
 	google.golang.org/grpc v1.32.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
